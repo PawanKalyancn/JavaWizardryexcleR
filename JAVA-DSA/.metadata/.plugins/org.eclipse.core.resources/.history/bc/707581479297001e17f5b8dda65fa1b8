@@ -1,0 +1,25 @@
+package com.canlender.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
+
+import com.canlender.entity.Employee;
+import com.canlender.repository.EmployeeRepository;
+
+@Service
+	public class UserDetailsService  {
+
+	    @Autowired
+	    private EmployeeRepository employeeRepository;
+
+	    
+	    public UserDetails loadUserByUsername(Long email) throws UsernameNotFoundException {
+	        Employee employee = employeeRepository.findById(email)
+	                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+
+	        return new User(employee.getEmail(), employee.getPassword(), new ArrayList<>());
+	    }
+	
+}

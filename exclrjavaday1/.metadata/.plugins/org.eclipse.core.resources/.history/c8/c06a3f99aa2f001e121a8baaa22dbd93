@@ -1,0 +1,44 @@
+package javaday6;
+
+class Car
+
+{
+	public Car(int i, String string, int j, String string2) {
+		// TODO Auto-generated constructor stub
+	}
+	void modelno(int modelno)
+	{
+	
+	}
+	void color(String color)
+	{
+		
+	}
+	
+	void speed(int speed)
+	{
+		
+	}
+	
+	void brandname(String brandname)
+	{
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+public class carexampleprg {
+
+	public static void main(String[] args) {
+
+		Car car = new Car(2022,"red",0,"kia");
+	}
+
+}

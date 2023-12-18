@@ -1,0 +1,109 @@
+package com.excelr.service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.excelr.entity.Student;
+import com.excelr.exception.IdNotFoundException;
+import com.excelr.exception.InValidPhonenoException;
+import com.excelr.repository.StudentRepository;
+import com.excelr.utility.AppConstant;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+
+	@Autowired
+	StudentRepository studentRepository;
+	
+	
+
+	@Override
+	public Student addStudent(Student student) {
+		{
+			
+			if(student.getPhoneno()<=0)
+			{
+				throw new InValidPhonenoException(AppConstant.INAVLID_PRICE_EXCEPTION);
+			}
+			
+			
+		    Student std2=studentRepository.save(student);
+			return std2;
+		}
+	}
+
+
+	@Override
+	public List<Student> getAllStudent() {
+		
+			 
+			return studentRepository.findAll();
+
+	}
+
+
+	@Override
+	public Student getStudentById(int id) {
+		
+		   Optional<Student> optionalstudent=  studentRepository.findById(id);
+		  Student std=null;
+		  
+		  if(optionalstudent.isPresent())
+		   {
+			   std= optionalstudent.get();
+		   }
+		  else
+		  {
+			  throw new IdNotFoundException(AppConstant.ID_NOT_FOUND_MESSAGE);
+		  }
+			
+			return std;
+		}
+		
+
+	@Override
+	public String deleteStudent(int id) {
+		
+			String msg="";
+			   if(studentRepository.existsById(id))
+			   {
+				   studentRepository.deleteById(id);
+				   msg="student deleted";
+			   }
+			   else
+			   {
+				   throw new IdNotFoundException(AppConstant.ID_NOT_FOUND_MESSAGE);
+			   }
+			
+			return msg;
+		}
+
+	@Override
+	public String updateStudent(int id, Student student) {
+		
+			String msg="";
+			   if(studentRepository.existsById(id))
+			   {
+				    Student std = studentRepository.findById(id).get();
+				    std.setName(student.getName());
+				    std.setDept(student.getDept());
+				    std.setPhoneno(student.getPhoneno());
+				    
+				    Student std =studentRepository.save(student);
+				    msg="product successfull updated";
+				    
+			   }
+			   else
+			   {
+				   throw new IdNotFoundException(AppConstant.ID_NOT_FOUND_MESSAGE);
+			   }
+			return msg;
+		}
+	
+	
+
+}

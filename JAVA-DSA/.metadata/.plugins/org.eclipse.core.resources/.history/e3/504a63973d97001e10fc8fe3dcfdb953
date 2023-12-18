@@ -1,0 +1,57 @@
+package com.canlender.service;
+
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+import com.canlender.entity.TimesheetEntry;
+import com.canlender.repository.TimesheetEntryRepository;
+
+import java.util.List;
+	import java.util.Optional;
+
+	@Service
+	public class TimeSheetServiceImpl implements TimeSheetService {
+
+	    @Autowired
+	    private TimesheetEntryRepository timeSheetRepository;
+
+		@Override
+		public List<TimesheetEntry> getAllTimeSheetEntries() {
+
+	        return timeSheetRepository.findAll();
+		}
+
+		@Override
+		public TimesheetEntry saveTimeSheetEntry(TimesheetEntry timeSheetEntry) {
+			// TODO Auto-generated method stub
+	        return timeSheetRepository.save(timeSheetEntry);
+		}
+
+		
+
+
+		@Override
+		public void deleteTimeSheetEntry(Long id) {
+			// TODO Auto-generated method stub
+	        timeSheetRepository.deleteById(id);
+		}
+
+		@Override
+		public TimesheetEntry updateTimeSheetEntryStatus(Long id, String status, String reason) {
+			 TimesheetEntry entry = timeSheetRepository.findById(id).orElseThrow(/* handle not found exception */);
+
+		        // Update the status
+		        entry.setStatus(status);
+
+		        // Update the rejection reason if status is "Rejected"
+		        if ("Rejected".equals(status)) {
+		            entry.setReason(reason);
+		        } else {
+		            entry.setReason(null); // Clear reason for other statuses
+		        }
+
+		        // Save the updated entry to the database
+		        return timeSheetRepository.save(entry);
+		    }
+	}

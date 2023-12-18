@@ -1,0 +1,5 @@
+package com.excler.exception;
+
+public class IdNotfoundException {
+
+}

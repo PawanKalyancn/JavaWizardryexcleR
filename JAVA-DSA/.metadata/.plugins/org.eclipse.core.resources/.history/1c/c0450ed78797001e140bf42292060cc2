@@ -1,0 +1,5 @@
+package com.canlender.repository;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+    // Additional query methods can be added here if needed
+}

@@ -1,0 +1,145 @@
+encapulation is data hinding 
+
+class Employee
+{
+    private	int id;
+    private	String name;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+
+    
+	
+}
+public class EncapuslationDemo {
+
+	public static void main(String[] args) {
+
+		Employee emp = new Employee();
+		//emp.id=1;
+		//emp.name="sachin";
+		
+		emp.setId(1);
+		emp.setName("rahul");
+		
+		System.out.println(emp.getId());
+		System.out.println(emp.getName());
+		
+		
+		
+		
+		
+	}
+
+}
+
+overloading
+----------------------
+class Flipkart
+{
+	void filter()
+	{
+		System.out.println("default filter");
+	}
+	
+	void filter(int price)
+	{
+		System.out.println("filter by price");
+	}
+	
+	void filter(String brandName)
+	{
+		System.out.println("filter by brand name");
+
+	}
+	
+	void filter(int price,String brandName)
+	{
+		System.out.println("filter by price and brand name");
+
+	}
+}
+
+public class Overloading {
+
+	public static void main(String[] args) {
+
+		Flipkart flipkart = new Flipkart();
+		flipkart.filter();
+		
+	}
+
+}
+-------------------------
+overriding
+---------------------
+class Parent
+{
+	void breakfast()
+	{
+		System.out.println("idly");
+	}
+	
+	
+}
+
+class Child extends Parent
+{
+	
+	void breakfast()
+	{
+		System.out.println("dosa");
+	}
+   
+}
+public class OverridingDemo {
+
+	public static void main(String[] args) {
+
+		Child child = new Child();
+		child.breakfast();
+		
+		
+	}
+
+}
+
+inhertence
+====================
+class Parent
+{
+	Parent(int id)
+	{
+		System.out.println("parent constructor "+ id);
+	}
+}
+
+class Child extends Parent
+{
+	Child() 
+	{
+		super(1);
+		System.out.println("child constructor");
+	}
+	
+}
+
+
+
+public class InheritanceDemo {
+
+	public static void main(String[] args) {
+
+		Child child = new Child();
+	}
+
+}

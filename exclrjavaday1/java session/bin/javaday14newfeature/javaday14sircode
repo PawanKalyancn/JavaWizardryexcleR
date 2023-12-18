@@ -1,0 +1,413 @@
+method reference 
+-----------------------------
+package com.excelr.day14.newfeature;
+
+@FunctionalInterface
+interface Test
+{
+	   void display();
+}
+
+class Person
+{
+	  static void showMessage()
+	  {
+		  System.out.println("this is person info");
+	  }
+	  
+	  static void showMessage2()
+	  {
+		  System.out.println("this is student info");
+	  }
+}
+
+
+
+
+public class MethodReferenceDemo {
+
+	public static void main(String[] args) {
+
+		Test t = ()->System.out.println("this is lamda impl");
+		t.display();
+		
+		Test test = Person::showMessage;
+		test.display();
+		
+		Test test2 = Person::showMessage2;
+		test2.display();
+		
+		
+		
+	}
+
+}
+
+
+
+========================
+methodrefernce demo2
+
+package com.excelr.day14.newfeature;
+
+interface Bank
+{
+	void rateOfInterest();
+}
+
+
+
+
+public class MethodReference2 {
+
+	public static void main(String[] args) {
+		
+		//implementation using lamda expression
+		Bank sbi = ()->System.out.println("sbi 4%");
+		Bank axis = ()-> System.out.println("axis 7%");
+		
+	    sbi.rateOfInterest();
+	    axis.rateOfInterest();
+	    
+	    System.out.println("---calling the static method");
+	    NetBanking.interestRate();
+	    
+	    System.out.println("----using method reference-----");
+	    //implementation using method reference.
+	    Bank kotak = NetBanking::interestRate;
+	    kotak.rateOfInterest();
+	    
+	    
+	    
+		
+
+		}
+
+}
+
+
+==================================
+methodrefer demo
+====================
+package com.excelr.day14.newfeature;
+
+interface Eat
+{
+	void breakfast();
+}
+
+class Hotel
+{
+	void buyBreakfast()
+	{
+		System.out.println("pay for the order, eat the idly");
+	}
+}
+
+
+public class MethodReference3 {
+
+	public static void main(String[] args) {
+
+		// lamda expression
+		Eat eat1 = ()-> {
+			System.out.println("preparing idly");
+			System.out.println("eating idly");
+		  };
+	     eat1.breakfast();
+	    
+	     System.out.println("-----");
+	     
+	     Hotel hotel = new Hotel();
+	     
+	     Eat eat2 = hotel::buyBreakfast;
+	     eat2.breakfast();
+	     
+	     
+	
+	
+	
+	
+	}
+
+}
+
+=======================
+ackage com.excelr.day14.newfeature;
+
+interface Eat
+{
+	void breakfast();
+}
+
+class Hotel
+{
+	void buyBreakfast()
+	{
+		System.out.println("pay for the order, eat the idly");
+	}
+}
+
+
+public class MethodReference3 {
+
+	public static void main(String[] args) {
+
+		//implemenation using lamda expression
+		Eat eat1 = ()-> {
+			System.out.println("preparing idly");
+			System.out.println("eating idly");
+		  };
+	     eat1.breakfast();
+	    
+	     System.out.println("-----");
+	     
+	     Hotel hotel = new Hotel();
+	     
+	     //implementation using method reference.
+	     Eat eat2 = hotel::buyBreakfast;
+	     eat2.breakfast();
+	     
+	     
+	
+	
+	
+	
+	}
+
+}
+
+===================
+package com.excelr.day14.newfeature;
+
+interface Eat
+{
+	void breakfast();
+}
+
+class Hotel
+{
+	void buyBreakfast()
+	{
+		System.out.println("pay for the order, eat the idly");
+	}
+}
+
+
+public class MethodReference3 {
+
+	public static void main(String[] args) {
+
+		//implemenation using lamda expression
+		Eat eat1 = ()-> {
+			System.out.println("preparing idly");
+			System.out.println("eating idly");
+		  };
+	     eat1.breakfast();
+	    
+	     System.out.println("-----");
+	     
+	     Hotel hotel = new Hotel();
+	     
+	     //implementation using method reference.
+	     Eat eat2 = hotel::buyBreakfast;
+	     eat2.breakfast();
+	     
+	     
+	
+	
+	
+	
+	}
+
+}
+package com.excelr.day14.newfeature;
+
+interface Bank
+{
+	void rateOfInterest();
+}
+
+
+
+
+public class MethodReference2 {
+
+	public static void main(String[] args) {
+		
+		//implementation using lamda expression
+		Bank sbi = ()->System.out.println("sbi 4%");
+		Bank axis = ()-> System.out.println("axis 7%");
+		
+	    sbi.rateOfInterest();
+	    axis.rateOfInterest();
+	    
+	    System.out.println("---calling the static method");
+	    NetBanking.interestRate();
+	    
+	    System.out.println("----using method reference-----");
+	    //implementation using method reference.
+	    Bank kotak = NetBanking::interestRate;
+	    kotak.rateOfInterest();
+	    
+	    
+	    
+		
+
+		}
+
+}
+//SIR wht is difference between lamda expressoion and method refereence
+
+
+=====================
+strem
+===================
+package com.excelr.day14.newfeature;
+
+import java.util.ArrayList;
+
+public class WhyWeNeedStream {
+
+	public static void main(String[] args) {
+
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		
+		//adding the numbers into arraylist
+		for(int i=1;i<=10;i++)
+		{
+			nums.add(i);
+		}
+		
+		System.out.println(nums);
+		
+		//1st way ( printing only even numbers using normal way)
+		for(int num : nums)
+		{
+			if(num%2==0)
+			{
+				System.out.println(num);
+			}
+		}
+		
+		System.out.println("-----------using stream iterating the element----");
+		nums.forEach(s->System.out.println(s));
+		
+		System.out.println("-----------using stream filtering and iterating the element----");
+		nums.stream().filter(num->num%2==0).forEach(num->System.out.println(num));
+		
+	}
+
+}
+
+
+=================
+stream demo
+===============
+package com.excelr.day14.newfeature;
+
+import java.util.ArrayList;
+
+public class StreamDemo2 {
+
+	public static void main(String[] args) {
+
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		employees.add(new Employee(1, "john", "hr", 68000, 23));
+		employees.add(new Employee(2, "rohan", "developer", 88000, 26));
+		employees.add(new Employee(3, "ankit", "tester", 57000, 24));
+		employees.add(new Employee(4, "sourab", "hr", 92000, 31));
+		employees.add(new Employee(5, "lavanya", "developer", 91000, 32));
+		employees.add(new Employee(6, "sumit", "hr", 74000, 25));
+
+	}
+
+}
+
+public class Employee {
+
+	private int id;
+	private String name;
+	private String dept;
+	private int salary;
+	private int age;
+	public Employee() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Employee(int id, String name, String dept, int salary, int age) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.dept = dept;
+		this.salary = salary;
+		this.age = age;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDept() {
+		return dept;
+	}
+	public void setDept(String dept) {
+		this.dept = dept;
+	}
+public int getSalary() {
+		return salary;
+	}
+	public void setSalary(int salary) {
+		this.salary = salary;
+	}
+	public int getAge() {
+		return age;
+	}
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", dept=" + dept + ", salary=" + salary + ", age=" + age + "]";
+	}
+	
+	
+	
+	
+}
+package com.excelr.day14.newfeature;
+
+import java.util.ArrayList;
+
+public class StreamDemo2 {
+
+	public static void main(String[] args) {
+
+		ArrayList<Employee> employees = new ArrayList<Employee>();
+		employees.add(new Employee(1, "john", "hr", 68000, 23));
+		employees.add(new Employee(2, "rohan", "developer", 88000, 26));
+		employees.add(new Employee(3, "ankit", "tester", 57000, 24));
+		employees.add(new Employee(4, "sourab", "hr", 92000, 31));
+		employees.add(new Employee(5, "lavanya", "developer", 91000, 32));
+		employees.add(new Employee(6, "sumit", "hr", 74000, 25));
+		
+		System.out.println("printing all the object");
+		employees.forEach(e->System.out.println(e));
+        
+		System.out.println("-----using method reference");
+		employees.forEach(System.out::println);
+		
+		System.out.println("----display only dept----");
+		employees.stream().filter(e->e.getDept().equals("hr")).forEach(System.out::println);
+
+	}
+
+}

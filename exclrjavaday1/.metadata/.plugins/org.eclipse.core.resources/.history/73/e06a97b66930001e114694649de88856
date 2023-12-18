@@ -1,0 +1,15 @@
+trycatchdemo
+
+==============
+int marks[]=new int[5];
+		
+		try
+		{
+			System.out.println(2/2);
+			marks[7]=68;
+		}	
+		catch(ArithmeticException | ArrayIndexOutOfBoundsException  exObj ) // call the proper catch block
+		{
+			System.out.println(exObj.getMessage());
+			
+		}

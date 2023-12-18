@@ -1,0 +1,13 @@
+package com.excler.loanservies.Expection;
+
+
+	public class LoanApplicationAlreadyExistsException extends Exception {
+
+	    public LoanApplicationAlreadyExistsException(String message) {
+	        super(message);
+	    }
+
+	    // You can add additional constructors or methods if needed
+	}
+
+

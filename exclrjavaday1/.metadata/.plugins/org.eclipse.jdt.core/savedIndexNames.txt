@@ -1,0 +1,20 @@
+INDEX VERSION 1.134+C:\Program Files\eclipse\workspaces\exclrjavaday1\.metadata\.plugins\org.eclipse.jdt.core
+2470726707.index
+850602512.index
+979115507.index
+2199813509.index
+3973083444.index
+397585851.index
+3141401108.index
+1865797976.index
+4255075212.index
+3412725085.index
+2175620829.index
+3674471424.index
+2881125290.index
+3896570937.index
+631875954.index
+4148853262.index
+1652143591.index
+2684217421.index
+1696264553.index

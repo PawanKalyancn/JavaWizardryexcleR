@@ -1,0 +1,63 @@
+package com.excler.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import com.excler.entity.Movie;
+import com.excler.repository.MovieRepository;
+
+public class MovieServiesImpl implements MovieServies{
+
+	@Autowired
+	MovieRepository movierepository;
+	
+	;
+	@Override
+	@PutMapping("/api/add")
+	public Movie addmovie(Movie mov) {
+		Movie mov1 = movierepository.save(mov);
+		return mov1;
+	}
+
+	@Override
+	public List<Movie> getALLMovies() {
+
+		return movierepository.findAll();
+	}
+
+	@Override
+	public Movie getMovieById(int no) {
+	Optional<Movie>	op =movierepository.findById(no);
+	Movie movie =null;
+	if(op.isPresent())
+	{
+		movie=op.get();
+	}
+	return movie;
+	}
+
+	@Override
+	public String deleteMovie(int no) {
+		String msg ="";
+		if(movierepository.existsById(no))
+		{
+			movierepository.deleteById(no);
+			msg="movie is deleted";
+		}
+		else
+		{
+			msg="no is not found";
+		}
+		return msg ;
+	}
+
+	@Override
+	public String updateMovie(int no) {
+
+		return null;
+	}
+
+}

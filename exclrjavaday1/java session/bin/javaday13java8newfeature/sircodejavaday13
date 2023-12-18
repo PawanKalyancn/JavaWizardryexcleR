@@ -1,0 +1,244 @@
+package com.excelr.day13.newfeature;
+
+class Parent2
+{
+	void phone()
+	{
+		System.out.println("samsung");
+	}
+}
+
+
+
+public class AnonomysClass {
+
+	public static void main(String[] args) {
+
+		Parent2 par = new Parent2();
+		par.phone();
+		
+		Parent2 parent2 = new Parent2()
+		{
+			void phone()
+			{
+				System.out.println("nokia");
+			}
+		};
+		
+		
+		
+		System.out.println("----anonmys inner class---------");
+		parent2.phone();
+		
+	}
+
+}
+=============================
+anomysclass another demo
+===========================================
+package com.excelr.day13.newfeature;
+
+class Parent2
+{
+	void phone()
+	{
+		System.out.println("samsung");
+	}
+}
+
+
+
+
+
+public class AnonomysClass {
+
+	public static void main(String[] args) {
+
+		Parent2 p = new Parent2();
+		p.phone();
+		
+		
+		System.out.println("----anonomys inner class---------");
+		Parent2 p1 = new Parent2()
+		{
+			void phone()
+			{
+				System.out.println("nokia");
+			}
+		};
+		p1.phone();
+		
+		
+		Parent2 p2 = new Parent2();
+		p2.phone();
+		
+		
+	}
+
+}
+=======================
+lamdaexample
+===============================
+package com.excelr.day13.newfeature;
+
+interface Parent4
+{
+	void phone();
+}
+
+
+public class LamdaExpressionDemo1 {
+
+	public static void main(String[] args) {
+
+		Parent4 p1 = ()-> System.out.println("nokia");
+		
+		p1.phone();
+		
+	}
+
+}
+==========================
+lamdaexample2
+======================
+package com.excelr.day13.newfeature;
+
+interface Operation
+{
+	   int calculation(int a,int b);
+}
+
+
+
+public class LamdaExpression2 {
+
+	public static void main(String[] args) {
+
+		Operation add = (a,b) -> a+b;
+		
+		Operation sub = (a,b)-> a-b;
+		
+		Operation mul = (a,b)->a*b;
+		
+		System.out.println("addition :"+add.calculation(2, 4));
+		System.out.println("substraction :"+ sub.calculation(2, 4));
+		System.out.println("multiplication :"+mul.calculation(2, 4));
+
+		
+		
+	}
+
+}
+
+
+====================
+lamda example3
+==========================
+interface Large
+{
+	String largest(int a,int b, int c);
+}
+
+
+
+public class LamdaExpressionDemo3 {
+
+	public static void main(String[] args) {
+
+		Large large = (a,b,c) ->
+		{
+			if(a>b && a>c)
+				return a+" is the largest ";
+			else if(b>a && b>c)
+				return b+" is the largest ";
+			return c+" is the largest ";
+			
+		};
+		
+		
+		System.out.println(large.largest(13, 7, 15));
+		
+		
+	}
+
+}
+
+
+
+task:-
+   1) interface vote
+      {
+	       String checkEligiblity(int age);
+	  }
+	  
+	     write a lamda expression, do check the age eliiblity if age>=18 , eligible to vote
+		 else not eligible
+	  
+	  
+
+    2) interface checkNumber
+	   {
+	        String  oddEven(int num);
+	   }
+
+         write a lamda expression, to check the number is even or odd. ->
+		   return even if the number is even, return odd if the number is odd.
+		   
+		   
+		   ===================
+		   
+		   predicte 
+		   ===================
+		   Predicate<Integer> checkEligiblity = (age) -> {
+			                         if(age>=18)
+			                         	return true;
+			                       return false;
+		                        };
+		                        
+		System.out.println(checkEligiblity.test(23)); 
+		System.out.println(checkEligiblity.test(14));
+		
+		preccdetive example
+		================
+ackage com.excelr.day13.newfeature;
+
+import java.util.function.Predicate;
+
+public class PredicateDemo2 {
+
+	public static void main(String[] args) {
+
+		PredicateDemo2 demo2 = new PredicateDemo2();
+		int marks[] = {45,33,99,50,60,21};
+		
+		
+		Predicate<Integer> pass = (mark)-> mark>50;
+		Predicate<Integer> even = (mark) -> mark%2==0;
+		Predicate<Integer> equalto50 = (mark) -> mark==50;
+		
+		System.out.println("display only pass marks");
+		demo2.display(pass, marks);
+		
+		System.out.println("display even marks ");
+		demo2.display(even, marks);
+		
+		System.out.println("marks equal to 50");
+		demo2.display(equalto50, marks);
+		
+		
+		
+		
+	}
+	
+	
+    void display(Predicate<Integer> p, int marks[])
+    {
+    	for(int mark : marks)
+    	{
+    		if(p.test(mark))
+    			System.out.print(mark +" ");
+    	}
+    	System.out.println();
+    }
+
+}		

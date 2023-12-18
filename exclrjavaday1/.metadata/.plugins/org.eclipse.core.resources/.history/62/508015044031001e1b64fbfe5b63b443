@@ -1,0 +1,61 @@
+package javaday8;
+
+import java.util.ArrayList;
+
+public class Arraylistmethods {
+
+	public static void main(String[] args) {
+		ArrayList<Integer> num1 = new ArrayList<Integer>();
+		num1.add(1);
+		num1.add(2);
+		num1.add(3);
+		num1.add(4);
+		num1.add(5);
+		ArrayList<Integer> num2 = new ArrayList<Integer>();
+		num2.add(4);
+		num2.add(5);
+		num2.add(6);
+		num2.add(7);
+		num2.add(8);
+		System.out.println("num1"+num1);
+		System.out.println("num2"+num2);
+		//num2.addAll(num1);
+		//num2.removeAll(num1);
+		
+		num2.retainAll(num1); //shows the similar names or valuse for the list
+		System.out.println("afteer retain:"+num2);
+
+		//System.out.println("afteer remove:"+num2);
+
+		//System.out.println("afteer add :"+num2);
+		num2.removeAll(num1);
+		System.out.println(num2);
+		
+		batch1.addAll(num2);
+		System.out.println(num1);
+	
+	
+	//task
+		ArrayList<String> batch1 = new ArrayList<String>();
+		batch1 .add("ankit");
+		batch1 .add("rohit");
+		batch1 .add("manisha");
+		batch1 .add("anil");
+		batch1 .add("rahul");
+		ArrayList<String> batch2 = new ArrayList<String>();
+		batch2.add("jhon");
+		batch2.add("rohit");
+		batch2.add("mukes");
+		batch2.add("anil");
+		batch2.add("rahul");
+		System.out.println("batch1"+batch1);
+		System.out.println("batch2"+batch2);
+		batch2.removeAll(batch1);
+		System.out.println(batch2);
+		
+		batch1.addAll(batch2);
+		System.out.println(batch1);
+	
+	}
+
+}

@@ -1,0 +1,49 @@
+package com.excelr.service;
+
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.excelr.entity.Address;
+import com.excelr.entity.Customer;
+import com.excelr.repository.AddressRepository;
+import com.excelr.repository.CustomerRepository;
+
+@Service
+public class CustomerService {
+
+	@Autowired
+	AddressRepository addressRepository;
+	
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	public Customer addCustomer(Customer customer)
+	{
+		
+     List<Address> addresses = customer.getAddresses();	
+     for(Address address : addresses)
+     {
+    	 address.setCustomer(customer);
+     }
+		
+		
+	Customer customer2= customerRepository.save(customer);
+	
+	  
+	 
+	
+	  
+    return customer2;
+	}
+	
+	
+	public List<Customer> getAllCustomer()
+	{
+		return customerRepository.findAll();
+	}
+	
+}

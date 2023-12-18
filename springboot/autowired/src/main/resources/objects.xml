@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   
+   <bean id="b" class="com.excelr.Breakfast" autowire="byName">
+      <property name="restrauntName" value="Abc restraunt"></property>
+   
+   </bean>
+ 
+    <bean id="idly" class="com.excelr.Idly">
+     <property name="price" value="100"></property>
+     </bean>
+ <bean id="idly2" class="com.excelr.Idly">
+        <property name="price" value="200"></property>
+    </bean>
+    
+    <bean id="dosa" class="com.excelr.Dosa">
+    </bean>
+   
+</beans>

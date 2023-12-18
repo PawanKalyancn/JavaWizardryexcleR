@@ -1,0 +1,18 @@
+package thopu;
+
+public class instanceOfoperator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("instanceOf operator\r\n"
+				+ "It is a java keyword and used to test whether the given reference belongs to provided type or not. Type can be a class or interface. It returns either true or false.\r\n"
+				+ "\r\n"
+				+ "Example:\r\n"
+				+ "\r\n"
+				+ "Here, we created a string reference variable that stores “studytonight”. Since it stores string value so we test it using isinstance operator to check whether it belongs to string class or not. See the below example.");
+		String a = "Studytonight";
+		boolean b = a instanceof String;
+		System.out.println( b );			
+	}
+
+}

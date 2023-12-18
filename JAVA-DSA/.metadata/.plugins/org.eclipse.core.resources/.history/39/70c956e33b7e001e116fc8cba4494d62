@@ -1,0 +1,41 @@
+package StreamDEmo;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class WweImplationdemo {
+	    public static void main(String[] args) {
+	        List<WWE> wrestlers = new ArrayList<>();
+
+	        // Add wrestlers to the list
+	        wrestlers.add(new WWE("John", "Cena", 250));
+	        wrestlers.add(new WWE("Roman", "Reigns", 265));
+	        wrestlers.add(new WWE("Seth", "Rollins", 195));
+	        wrestlers.add(new WWE("Becky", "Lynch", 150));
+
+	        // a) Count the number of wrestlers
+	        long wrestlerCount = wrestlers.stream().count();
+	        System.out.println("Total number of wrestlers: " + wrestlerCount);
+
+	        // b) Sum of weight of all wrestlers whose weight is above 200
+	        int totalWeightAbove200 = wrestlers.stream()
+	                .filter(wrestler -> wrestler.getWeight() > 200)
+	                .mapToInt(WWE::getWeight)
+	                .sum();
+	        System.out.println("Total weight of wrestlers above 200 lbs: " + totalWeightAbove200);
+
+	        // c) Method to print the first names of all wrestlers
+	        List<String> firstNames = printFirstName(wrestlers);
+	        System.out.println("First names of all wrestlers: " + firstNames);
+	    }
+
+	    public static List<String> printFirstName(List<WWE> wrestlers) {
+	        return wrestlers.stream()
+	                .map(WWE::getFirstName)
+	                .collect(Collectors.toList());
+	    }
+	}
+
+
+
+

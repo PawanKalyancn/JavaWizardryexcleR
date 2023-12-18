@@ -1,0 +1,29 @@
+package com.canlender.service;
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+import com.canlender.entity.Employee;
+import com.canlender.repository.EmployeeRepository;
+
+import java.util.List;
+	import java.util.Optional;
+
+	@Service
+	public class EmployeeServiceImpl implements EmployeeService {
+
+	    @Autowired
+	    private EmployeeRepository employeeRepository; // Assuming you have an EmployeeRepository
+
+	    @Override
+	    public Employee getEmployeeById(Long employeeId) {
+	        Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+	        return optionalEmployee.orElse(null);
+	    }
+
+	    @Override
+	    public List<Employee> getAllEmployees() {
+	        return employeeRepository.findAll();
+	    }
+	
+}

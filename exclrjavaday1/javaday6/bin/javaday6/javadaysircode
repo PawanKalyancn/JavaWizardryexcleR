@@ -1,0 +1,223 @@
+=======================
+upcasting
+====================
+class RBI
+{
+	void rateOfInterest()
+	{
+		System.out.println("3% rbi interest");
+	}
+	
+	void holiday()
+	{
+		System.out.println("2nd and 4th satrurday is holiday");
+	}
+}
+
+class Axis extends RBI
+{
+	void rateOfInterest()
+	{
+		System.out.println("6% axis interest");
+	}
+	
+	void axisNewPolicy()
+	{
+		System.out.println("to open an account no need of pan");
+	}
+	
+}
+public class Upcasting {
+
+	public static void main(String[] args) {
+
+		Axis axis = new Axis();   // it has access to both
+		axis.rateOfInterest();
+		axis.holiday();
+		axis.axisNewPolicy();
+		
+		System.out.println("==================");
+		
+		RBI rbi = new Axis();  // upcasting ( child object, parent reference)
+		rbi.rateOfInterest();
+		rbi.holiday();
+		//rbi.axisNewPolicy();
+		
+		
+		
+		
+	}
+
+}
+-------------------------------------
+abstractclass
+------------------------
+abstract class Operation
+{
+	void greet()
+	{
+		System.out.println("hi welcome all...");
+	}
+	
+	abstract void calculate(int a,int b);
+}
+
+class Addition extends Operation
+{
+
+	@Override
+	void calculate(int a, int b) 
+	{
+		System.out.println(a-b);
+	}
+	
+}
+
+
+
+
+public class AbstractClassDemo {
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		addition.calculate(2, 3);
+	}
+}
+
+-------------------
+interface
+-----------------
+interface Breakfast
+{
+  void eat();
+}
+
+class Idly implements Breakfast
+{
+
+	@Override
+	public void eat() {
+         System.out.println("hi iam eating idly");		
+	}
+	
+}
+
+class Dosa implements Breakfast
+{
+
+	@Override
+	public void eat() {
+       System.out.println("hi iam eating dosa");		
+	}
+	
+}
+
+public class LooselyCoupled {
+
+	public static void main(String[] args) {
+		
+		Breakfast breakfast = new Idly();
+		breakfast.eat();
+
+	}
+
+}
+
+another examaple for intertface
+
+=========================
+package com.excelar.day6.oops;
+
+interface Bank
+{
+	void greet1();
+}
+
+interface Rbi 
+{
+	 void greet2();
+}
+
+class ZeroBalanceAccount
+{
+	
+}
+
+
+class Kotak extends ZeroBalanceAccount implements Bank,Rbi
+{
+
+	@Override
+	public void greet1() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void greet2() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
+
+
+
+public class InterfaceDemo2 {
+
+	public static void main(String[] args) {
+
+	}
+
+}
+==============
+task sir given
+=========================
+class Car
+{
+int modelNo;
+String Color;
+int speed;
+String brandName;
+
+Car(int modelNo, String Color, int speed, String brandName)
+{
+this.modelNo=modelNo;
+this.Color=Color;
+this.speed=speed;
+this.brandName=brandName;
+}
+
+void accelerate()
+{
+speed += 5;
+}
+
+void brake()
+{
+speed -= 5;
+}
+
+void getSpeed()
+{
+System.out.println("the current speed is :"+speed);
+}
+}
+
+
+
+public class CarApp {
+public static void main(String[] args) {
+
+Car car = new Car(2023, "black", 0, "Audi");
+
+for(int i=0; i<3; i++) {
+car.accelerate();
+}
+car.brake();
+
+car.getSpeed();
+}
+}
+

@@ -1,0 +1,53 @@
+package StreamDEmo;
+
+public class Employee {
+
+		    private String firstName;
+		    private String lastName;
+
+		    public Employee(String firstName, String lastName) {//constructor
+		        if (firstName == null || lastName == null) {
+		            throw new NullPointerException("Entry Missing");
+		        }
+
+		        if (firstName.length() < 3 || lastName.length() < 3) {
+		            throw new IllegalArgumentException("Name should be a minimum of 3 characters");
+		        }
+
+		        this.firstName = firstName;
+		        this.lastName = lastName;
+		    }
+
+		    // Getter and Setter methods for firstName and lastName
+		    public String getFirstName() {
+		        return firstName;
+		    }
+
+		    public void setFirstName(String firstName) {
+		        this.firstName = firstName;
+		    }
+
+		    public String getLastName() {
+		        return lastName;
+		    }
+
+		    public void setLastName(String lastName) {
+		        this.lastName = lastName;
+		    }
+
+		    public static void main(String[] args) {
+		        try {
+		            Employee employee1 = new Employee("pawan", "kalyan");
+		            System.out.println("Employee 1: " + employee1.getFirstName() + " " + employee1.getLastName());
+
+		            // This will throw an exception because the name length is less than 3 characters.
+		            Employee employee2 = new Employee("A", "B");
+		        } catch (NullPointerException e) {
+		            System.out.println("NullPointerException: " + e.getMessage());
+		        } catch (IllegalArgumentException e) {
+		            System.out.println("IllegalArgumentException: " + e.getMessage());
+		        }
+		    
+	}
+
+}

@@ -1,0 +1,63 @@
+package thopu;
+
+public class Bitwiseoperators {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		 int a = 50; 
+	        int b = 25; 
+	        int c = 0;
+
+	        c = a & b;        
+	        System.out.println("a & b = " + c );
+
+	        c = a | b;        
+	        System.out.println("a | b = " + c );
+
+	        c = a ^ b;        
+	        System.out.println("a ^ b = " + c );
+
+	        c = ~a;           
+	        System.out.println("~a = " + c );
+
+	        c = a << 2;      
+	        System.out.println("a << 2 = " + c );
+
+	        c = a >> 2;       
+	        System.out.println("a >>2  = " + c );
+
+	        c = a >>> 2;     
+	        System.out.println("a >>> 2 = " + c );
+	        
+	        System.out.println("Bitwise operators are used to perform operations bit by bit.\r\n"
+	        		+ "\r\n"
+	        		+ "Java defines several bitwise operators that can be applied to the integer types long, int, short, char and byte.\r\n"
+	        		+ "\r\n"
+	        		+ "The following table shows all bitwise operators supported by Java.\r\n"
+	        		+ "\r\n"
+	        		+ "Operator	Description\r\n"
+	        		+ "&	Bitwise AND\r\n"
+	        		+ "|	Bitwise OR\r\n"
+	        		+ "^	Bitwise exclusive OR\r\n"
+	        		+ "<<	left shift\r\n"
+	        		+ ">>	right shift\r\n"
+	        		+ "Now lets see truth table for bitwise &, | and ^\r\n"
+	        		+ "\r\n"
+	        		+ "a	b	a & b	a | b	a ^ b\r\n"
+	        		+ "0	0	0	0	0\r\n"
+	        		+ "0	1	0	1	1\r\n"
+	        		+ "1	0	0	1	1\r\n"
+	        		+ "1	1	1	1	0\r\n"
+	        		+ "The bitwise shift operators shifts the bit value. The left operand specifies the value to be shifted and the right operand specifies the number of positions that the bits in the value are to be shifted. Both operands have the same precedence.\r\n"
+	        		+ "\r\n"
+	        		+ "Example:\r\n"
+	        		+ "Lets create an example that shows working of bitwise operators.\r\n"
+	        		+ "\r\n"
+	        		+ "a = 0001000\r\n"
+	        		+ "b = 2\r\n"
+	        		+ "a << b = 0100000\r\n"
+	        		+ "a >> b = 0000010 ");
+	}
+
+}

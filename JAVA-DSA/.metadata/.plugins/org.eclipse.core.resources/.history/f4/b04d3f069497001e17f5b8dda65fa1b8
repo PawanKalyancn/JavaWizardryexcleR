@@ -1,0 +1,46 @@
+package com.canlender.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.canlender.entity.Employee;
+import com.canlender.entity.Leave;
+import com.canlender.entity.LeaveRequest;
+import com.canlender.repository.LeaveRepository;
+
+@Service
+	public class LeaveServiceImpl implements LeaveService {
+
+	    @Autowired
+	    private LeaveRepository leaveRepository;
+
+	    @Autowired
+	    private EmployeeService employeeService; // Injecting EmployeeService
+
+	    @Override
+	    public void applyForLeave(LeaveRequest leaveRequest) {
+	        // Fetch employee details from the database using EmployeeService
+	        Employee employee = employeeService.getEmployeeById(leaveRequest.getEmployeeId());
+
+	        if (employee != null) {
+	            Leave leave = new Leave();
+	            leave.setEmployeeId(leaveRequest.getEmployeeId());
+	            leave.setEmployeeName(employee.getEmployeeName());
+	            leave.setDepartment(employee.getDepartment());
+	            leave.setStartDate(leaveRequest.getStartDate());
+	            leave.setEndDate(leaveRequest.getEndDate());
+	            leave.setLeaveType(leaveRequest.getLeaveType());
+	            leave.setReason(leaveRequest.getReason());
+
+	            leaveRepository.save(leave);
+	        }
+	    }
+
+	    @Override
+	    public List<Leave> getLeaveHistory(Long employeeId) {
+	        return leaveRepository.findByEmployeeId(employeeId);
+	    }
+	
+}

@@ -1,0 +1,88 @@
+try
+		{
+			//step-1
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("driver class loaded");
+			
+		//step-2
+		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/demodb", "root", "root");
+		System.out.println("connected ");
+		
+			//step 3:-
+		     Statement stmt = conn.createStatement();
+		     
+		ResultSet rs = stmt.executeQuery("select * from employee");
+		while(rs.next())
+		{
+			System.out.println(rs.getInt(1) +" "+ rs.getString(2) +" "+ rs.getString(3) +" "+ rs.getInt(4));
+		}
+		     
+			
+			
+			
+			
+		}
+		catch (Exception e) {
+		}
+	}
+	
+	
+	
+	====================
+	dynamic way to get datta from user
+	=========================
+	package com.excelr.day15;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class PreparedStatementDemo {
+
+	public static void main(String[] args) {
+		
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("enter id ");
+		int id = scanner.nextInt();
+		
+		System.out.println("enter name");
+		String name = scanner.next();
+		
+		System.out.println("enter dept");
+		String dept = scanner.next();
+		
+		System.out.println("enter salary ");
+		int salary = scanner.nextInt();
+try
+		{
+			//step-1
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			System.out.println("driver class loaded");
+			
+		//step-2
+		Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/demodb", "root", "root");
+		System.out.println("connected ");
+		
+		//step-3 creating prepared statement object.
+		PreparedStatement ps=conn.prepareStatement("insert into employee values(?,?,?,?)");
+		ps.setInt(1, id);
+		ps.setString(2, name);
+		ps.setString(3, dept);
+		ps.setInt(4,salary);
+		
+		ps.execute();
+		System.out.println("inserted");
+		
+			
+			
+		}
+		catch (Exception e) {
+		}
+	}
+
+}

@@ -1,0 +1,48 @@
+package javaday6;
+
+class Car
+
+{
+	void modelno(int modelno)
+	{
+	
+	}
+	void color(tring color)
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class carexampleprg {
+
+	public static void main(String[] args) {
+
+	}
+
+}

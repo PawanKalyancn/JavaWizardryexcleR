@@ -1,0 +1,13 @@
+package javaday7;
+
+import java.io.IOException;
+
+public class CheckedvsUnChecked {
+
+	public static void main(String[] args) throws IOException {
+		System.out.println("some error");
+	//throw new ArithmeticException("expcetion occuered");
+	throw new IOException();
+	}
+
+}

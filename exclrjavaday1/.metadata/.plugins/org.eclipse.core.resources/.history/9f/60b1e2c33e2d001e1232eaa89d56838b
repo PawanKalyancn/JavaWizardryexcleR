@@ -1,0 +1,59 @@
+package com.exclr.javaday04.oops;
+
+class Accountdb
+{
+	int accountNo;
+	String accountHolderName;
+	int balance;
+	
+	Accountdb(int accountNo, String accountHolderName, int balance) {
+		
+		this.accountNo = accountNo;
+		this.accountHolderName = accountHolderName;
+		this.balance = balance;
+	}
+	
+	
+      void withdraw(int amount)
+      {
+    	  balance-=amount;
+      }
+      
+      void deposit(int amount)
+      {
+    	  balance+=amount;
+      }
+      
+      int getBalance()
+      {
+    	  return balance;
+      }
+	
+	
+}
+
+
+
+
+public class Accountapp {
+
+	public static void main(String[] args) {
+	
+		Accountdb account = new Accountdb(1001, "ravi", 5000);
+		System.out.println("balance :"+ account.getBalance());
+		
+		account.withdraw(3000);
+		System.out.println("after withdraw balance :"+ account.getBalance());
+		
+		account.deposit(4000);
+		System.out.println("after deposit balance :"+ account.getBalance());
+		
+		account.deposit(4000);
+		System.out.println("after deposit balance :"+ account.getBalance());
+	
+		
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,13 @@
+package thopu;
+
+public class instanceOfoperator {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String a = "Studytonight";
+		boolean b = a instanceof String;
+		System.out.println( b );			
+	}
+
+}

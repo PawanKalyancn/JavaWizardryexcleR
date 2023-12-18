@@ -1,0 +1,15 @@
+package com.Assignment.service;
+
+import java.util.List;
+
+import com.Assignment.entity.Employee;
+
+public interface EmployeeService {
+	Employee addEmployee(Employee employee);
+	List<Employee> getAllEmployee();
+	Employee getProductById(int id);
+	String deleteProduct(int id);
+	String updateProduct(int id, Employee employee);
+	
+	
+}

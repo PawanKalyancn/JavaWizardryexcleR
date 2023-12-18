@@ -1,0 +1,36 @@
+package com.canlender.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.canlender.entity.TimesheetEntry;
+import com.canlender.service.TimeSheetService;
+
+
+@RestController
+@CrossOrigin(origins = "http://localhost:3000", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
+@RequestMapping("/timesheet/entry")
+public class TimesheetController {
+	    
+	@Autowired
+	private TimeSheetService timeSheetService;
+
+	    @GetMapping("/timesheet")
+	    public List<TimesheetEntry> getAllTimeSheetEntries() {
+	        return timeSheetService.getAllTimeSheetEntries();
+	    }
+
+	    @PostMapping
+	    public TimesheetEntry saveTimeSheetEntry(@RequestBody TimesheetEntry timeSheetEntry) {
+	        return timeSheetService.saveTimeSheetEntry(timeSheetEntry);
+	    }
+
+	    @PutMapping("/{id}/status")
+	    public TimesheetEntry updateTimeSheetEntryStatus(
+	            @PathVariable Long id,
+	            @RequestParam String status
+	    ) {
+	        return timeSheetService.updateTimeSheetEntryStatus(id, status);
+	    }
+	}

@@ -1,0 +1,40 @@
+package javaday6;
+
+
+//interface we use shd use impelement keyword for connecting interfacea and class
+
+interface Breakfast
+{
+	void eat();
+}
+
+class Idly implements Breakfast
+{
+
+	@Override
+	public void eat() {
+System.out.println("hii im eating idly");
+	}
+	
+}
+
+class Dosa implements Breakfast
+{
+
+	@Override
+	public void eat() {
+System.out.println("hello im eating dosa");		
+	}
+	
+}
+
+public class looselycoupled {
+
+	public static void main(String[] args) {
+
+		Breakfast breakfast =new Idly();
+		breakfast.eat();
+		
+	}
+
+}

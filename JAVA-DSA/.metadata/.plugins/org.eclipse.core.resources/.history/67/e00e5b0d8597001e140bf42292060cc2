@@ -1,0 +1,22 @@
+package com.canlender.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
+	public class Leave {
+	    @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+
+	    private Long employeeId;
+	    private String employeeName;
+	    private String department;
+	    private String startDate;
+	    private String endDate;
+	    private String leaveType;
+	    private String reason;
+
+	  
+}

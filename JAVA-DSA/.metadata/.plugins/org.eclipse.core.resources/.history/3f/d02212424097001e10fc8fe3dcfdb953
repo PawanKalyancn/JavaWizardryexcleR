@@ -1,0 +1,19 @@
+package com.canlender.service;
+
+
+
+import java.util.List;
+
+import com.canlender.entity.TimesheetEntry;
+
+public interface TimeSheetService {
+    List<TimesheetEntry> getAllTimeSheetEntries();
+    TimesheetEntry saveTimeSheetEntry(TimesheetEntry timeSheetEntry);
+    TimesheetEntry updateTimeSheetEntryStatus(Long id, String status, String reason);
+    void deleteTimeSheetEntry(Long id);
+ 
+	 List<TimesheetEntry> updateEntriesStatus(List<TimesheetEntry> requests);
+		// TODO Auto-generated method st
+	
+
+}

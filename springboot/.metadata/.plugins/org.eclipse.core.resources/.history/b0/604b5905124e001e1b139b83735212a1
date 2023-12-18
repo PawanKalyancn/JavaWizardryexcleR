@@ -1,0 +1,5 @@
+package com.excler.entity;
+
+public class Product {
+
+}

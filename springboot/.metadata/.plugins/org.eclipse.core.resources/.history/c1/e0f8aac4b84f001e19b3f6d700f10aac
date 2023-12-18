@@ -1,0 +1,54 @@
+package com.excler.contoller;
+	import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+	import org.springframework.web.bind.annotation.RestController;
+
+	import com.excler.entity.Movie;
+	import com.excler.services.MovieServies;
+	
+
+	@RestController
+	@RequestMapping("/api/Movies")
+	public class Moviecontoller {
+	     
+		@Autowired
+	      MovieServies movieServies;
+
+		@PostMapping("Movies")
+		public ResponseEntity<Movie> addmovie( @RequestBody Movie movie){
+			Movie movie2 = movieServies.addmovie(movie);
+			return new ResponseEntity<Movie>(movie2,HttpStatus.OK);
+		}
+	   
+		@GetMapping("/Movies")
+		public ResponseEntity<List<Movie>>getALLMovies(@PathVariable int no)
+		{
+			return new ResponseEntity<List<Movie>>(movieServies.getALLMovies(), HttpStatus.OK);
+		}
+		
+		public ResponseEntity<Movie>getMovieById(@PathVariable int no)
+		{
+			return new ResponseEntity<Movie>(movieServies.getMovieById(no), HttpStatus.OK);
+		}
+		
+		@DeleteMapping("/Movies")
+		public ResponseEntity<String> deleteMovie(@PathVariable int no)
+		{
+			return new ResponseEntity<String>(movieServies.deleteMovie(no), HttpStatus.OK);
+		} 
+		
+		public ResponseEntity<String> updateMovie(@PathVariable int no){
+			return new ResponseEntity<String>(movieServies.updateMovie(no), HttpStatus.OK);
+		}
+		
+	}
+

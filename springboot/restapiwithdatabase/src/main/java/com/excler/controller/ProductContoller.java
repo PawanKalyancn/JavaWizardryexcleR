@@ -1,0 +1,85 @@
+package com.excler.controller;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.excler.entity.Product;
+import com.excler.repository.ProductRepository;
+
+@RestController
+@RequestMapping("/api/v1")
+public class ProductContoller {
+
+	@Autowired
+	ProductRepository productRepository;
+	 
+	@PostMapping("/product")
+	public Product addNewproduct(@RequestBody Product product)
+	{
+	   Product pro=productRepository.save(product);
+	   return pro;
+		
+	}
+	
+	@GetMapping("/product")
+	public List<Product> getAllproduct()
+	{
+	    List<Product> employees =	productRepository.findAll();
+	    return employees;
+	}
+	
+	
+	@GetMapping("/product/{id}")
+	public Product getproductById(@PathVariable int id)
+	{
+		Optional<Product> empoptional = productRepository.findById(id);
+		
+		Product pro2=null;
+		
+		if(empoptional.isPresent())
+		{
+			pro2=empoptional.get();
+		}
+		   return pro2;
+	}
+	
+	@DeleteMapping("/product/{id}")
+	public String deleteproductById(@PathVariable int id)
+	{
+		  if(productRepository.existsById(id))
+		        productRepository.deleteById(id);
+		  else
+			  return "id "+ id +" not found to delete";
+		
+			  
+    return "id "+ id +" is deleted";
+	}
+	
+	@PutMapping("/product/{id}")
+		public String updateProduct(@PathVariable int id,@RequestBody Product product)
+		{
+			if(productRepository.existsById(id)) {
+			Product	p=productRepository.save(product);
+			p.setCategory(product.getCategory());
+			p.setName(product.getName());
+			productRepository.save(p);
+			
+			}
+			else {
+				return "id is not present";
+			}
+			return "product updated";
+		}
+	}
+	
+

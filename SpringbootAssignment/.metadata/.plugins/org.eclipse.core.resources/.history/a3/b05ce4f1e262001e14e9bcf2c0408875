@@ -1,0 +1,5 @@
+package com.Assignment.repository;
+
+public interface EmployeeRepository {
+
+}

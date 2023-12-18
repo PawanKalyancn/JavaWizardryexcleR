@@ -1,0 +1,50 @@
+package com.canlender.service;
+
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+import com.canlender.entity.TimesheetEntry;
+import com.canlender.repository.TimesheetEntryRepository;
+
+import java.util.List;
+	import java.util.Optional;
+
+	@Service
+	public class TimeSheetServiceImpl implements TimeSheetService {
+
+	    @Autowired
+	    private TimesheetEntryRepository timeSheetRepository;
+
+		@Override
+		public List<TimesheetEntry> getAllTimeSheetEntries() {
+
+	        return timeSheetRepository.findAll();
+		}
+
+		@Override
+		public TimesheetEntry saveTimeSheetEntry(TimesheetEntry timeSheetEntry) {
+			// TODO Auto-generated method stub
+	        return timeSheetRepository.save(timeSheetEntry);
+		}
+
+		@Override
+	    public TimesheetEntry updateTimeSheetEntryStatus(Long id, String status) {
+	        Optional<TimesheetEntry> optionalEntry = timeSheetRepository.findById(id);
+
+	        if (optionalEntry.isPresent()) {
+	            TimesheetEntry timeSheetEntry = optionalEntry.get();
+	            timeSheetEntry.setStatus(status);
+	            return timeSheetRepository.save(timeSheetEntry);
+	        } else {
+	            // Handle not found exception
+	            return null;
+	        }
+	    }
+
+		@Override
+		public void deleteTimeSheetEntry(Long id) {
+			// TODO Auto-generated method stub
+	        timeSheetRepository.deleteById(id);
+		}
+	}

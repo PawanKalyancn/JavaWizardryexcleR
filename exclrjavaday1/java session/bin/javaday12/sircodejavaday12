@@ -1,0 +1,168 @@
+
+
+task
+=====================
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Task1 {
+
+public static void main(String[] args) throws IOException {
+
+FileWriter fw = new FileWriter("hello2.txt", true);
+fw.write("hello world, welcome to java ");
+
+fw.flush();
+fw.close();
+
+FileReader fr = new FileReader("hello2.txt");
+
+int ch = fr.read();
+int count = 0;
+while(ch!= -1 )
+{
+if(ch == 'a')
+{
+count++;
+}
+ch=fr.read();
+}
+
+System.out.println(count);
+
+}
+
+}
+=====================
+string methods
+===============
+String name="sachin";
+		
+		System.out.println("length :"+ name.length());
+		System.out.println("index of a :"+ name.indexOf('a'));
+		System.out.println("char at 3 :"+ name.charAt(3));
+		System.out.println("equals  :"+ name.equals("sachin"));
+		System.out.println("equals  :"+ name.equals("SAchin"));
+		System.out.println("equals using ignore case :"+ name.equalsIgnoreCase("SAchin"));
+		System.out.println("uppercase :"+name.toUpperCase());
+		System.out.println("lowercase :"+name.toLowerCase());
+		System.out.println("substr with starting index "+name.substring(1));
+		System.out.println("substr with starting index and ending index "+name.substring(1,4));
+==========================
+
+mutable
+===================
+public static void main(String[] args) {
+
+		StringBuffer sb = new StringBuffer("anil");
+		System.out.println(sb);
+		
+		sb.append(" kumar");
+		
+		System.out.println(sb);
+		
+		
+		
+		
+	}
+	
+	
+	
+	String msg="welcome to java";
+		
+		int count=0;
+		for(int i=0;i<msg.length();i++)
+		{
+			char ch=msg.charAt(i);
+			 if(ch=='a' || ch=='e' || ch=='i' || ch=='o' || ch=='u')
+			 {
+				 ++count;
+				 System.out.println("vowels :"+ch);
+			 }
+			
+		}
+		
+		System.out.println(count
+		
+		
+		
+==============================	
+	to remove vowels
+	=============================
+	
+	package com.excelr.day12.stringhandling;
+
+public class RemoveVowelsFromString {
+
+	public static void main(String[] args) {
+
+	String msg="welcome to java";
+	String withoutvowels="";
+		
+		
+		for(int i=0;i<msg.length();i++)
+		{
+			char ch=msg.charAt(i);
+			 if(ch!='a' && ch!='e' && ch!='i' && ch!='o' && ch!='u')
+			 {
+				withoutvowels=withoutvowels+ch;
+			 }
+			
+			
+		}
+		
+		System.out.println(withoutvowels);
+
+	}
+
+}
+
+
+==============
+public class RemoveDuplicate {
+	public static void main(String args[]) {
+		String name="Harshal";
+		String withoutDuplicate;
+		char a;
+		char b;
+		int count=0;
+		for(int i=0;i<name.length()-1;i++) {
+			a=name.charAt(i);
+			for(int j=i+1;j<name.length();j++) {
+				b=name.charAt(j);
+				if(a==b) {
+					count++;
+				}
+			}
+		}
+		System.out.println(count);
+	}
+
+	
+
+}
+
+=======================
+to remove duplicates
+===================
+String name ="apple";
+		
+		//System.out.println(name.replace('a', ' '));
+
+		String withOutDuplicate ="";
+		
+		
+		for(int i=0;i<name.length();i++)
+		{
+			char ch = name.charAt(i);
+			
+			if(ch!=' ')
+			{
+				withOutDuplicate=withOutDuplicate+ch;
+				name=name.replace(ch, ' ');
+			}
+			
+		}
+		
+		System.out.println(withOutDuplicate);

@@ -1,0 +1,12 @@
+package com.canlender.repository;
+
+	import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.canlender.entity.Leave;
+
+import java.util.List;
+
+	public interface LeaveRepository extends JpaRepository<Leave, Long> {
+	    List<Leave> findByEmployeeId(Long employeeId);
+	}
+

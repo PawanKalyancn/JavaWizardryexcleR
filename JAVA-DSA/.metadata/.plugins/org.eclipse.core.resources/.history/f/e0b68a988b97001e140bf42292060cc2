@@ -1,0 +1,5 @@
+package com.canlender.security;
+
+public class SecurityConfig {
+
+}

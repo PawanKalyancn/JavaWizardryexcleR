@@ -1,0 +1,53 @@
+package javaday8;
+
+import java.util.ArrayList;
+
+public class Arraylistdemo2 {
+
+	public static void main(String[] args) {
+		ArrayList<String> customernames = new ArrayList<String>();
+		System.out.println("before adding size=" +customernames);
+		
+		customernames.add("zimbareyy");
+		customernames.add("kurchi");
+		customernames.add("madatha");
+		customernames.add("petti");
+		customernames.add("denguthey");
+		customernames.add("medalu");
+		customernames.add("irigipoyayi");
+	System.out.println("after adding size is "+customernames.size()); //size method
+	System.out.println("retrive alll the customer "+customernames);
+
+	customernames.remove(1);
+	System.out.println("after removing "+customernames);
+	
+	//remove the customer by index
+			customernames.remove(3);
+			System.out.println("after removing from index 1 :"+ customernames);
+
+			//remove the customer by object
+			customernames.remove("medalu");
+			System.out.println("after removing by object, :"+ customernames);
+			
+			//get the customer by index
+	        System.out.println("reterive customer by index :"+ customernames.get(1));
+			
+	        //update by index
+	        customernames.set(1,"adhi na capaciity");
+	        System.out.println("after replace at the index 1 :"+customernames);
+	       
+	        //search the object tells weather true or false
+	        System.out.println("search  of the element  :"+customernames.contains("petti"));
+	
+	        
+	        customernames.add(1,"namesthey");
+	        System.out.println("after adding at the index" +customernames);
+	        
+	        
+	        
+	    
+	        
+	        
+	}
+
+}

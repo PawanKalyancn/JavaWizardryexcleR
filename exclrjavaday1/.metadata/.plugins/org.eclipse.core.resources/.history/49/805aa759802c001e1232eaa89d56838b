@@ -1,0 +1,25 @@
+package com.exclr.javaday04.oops;
+
+class Bank
+{
+	Bank()
+	{
+		System.out.println("this is constructor");
+	}
+
+
+}
+
+
+
+
+
+public class accountapp {
+
+	
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

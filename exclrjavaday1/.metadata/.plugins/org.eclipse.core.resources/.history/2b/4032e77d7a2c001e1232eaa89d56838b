@@ -1,0 +1,21 @@
+package com.exclr.javaday04.oops;
+class Car
+{
+	int modelno;
+	double price;
+	String color;
+	int kilometerDriven;
+}
+public class carapp {
+
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

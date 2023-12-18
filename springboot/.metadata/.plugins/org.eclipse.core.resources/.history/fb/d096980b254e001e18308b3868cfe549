@@ -1,0 +1,39 @@
+package com.excler.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.excler.entity.Product;
+import com.excler.repository.ProductRepository;
+
+@RestController
+@RequestMapping("/api/v1")
+public class ProductContoller {
+
+	@Autowired
+	ProductRepository productrepository;
+	
+	@PostMapping("/product")
+	public Product addNewProduct(@RequestBody Product product) 
+	{
+		System.out.println("product");
+		Product pro = productrepository.save(product);
+		return pro;
+	}
+	
+	@GetMapping("/product")
+	public List<Product> getAllProduct(@RequestBody Product pro){
+		List<Product> product = productrepository.findAll();
+		return product;
+	}
+
+
+
+}
+

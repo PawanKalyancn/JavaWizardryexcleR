@@ -1,0 +1,37 @@
+package javaday8;
+
+import java.util.ArrayList;
+
+public class Arraylistdemo2 {
+
+	public static void main(String[] args) {
+		ArrayList<String> customernames = new ArrayList<String>();
+		System.out.println("before adding size=" +customernames);
+		
+		customernames.add("pawan");
+		customernames.add("pawank");
+		customernames.add("pawanka");
+		customernames.add("pawankal");
+		customernames.add("pawankaly");
+		customernames.add("pawankalya");
+		customernames.add("pawankalyan");
+	System.out.println("after adding size is "+customernames.size()); //size method
+	System.out.println("retrive alll the customer "+customernames);
+
+	customernames.remove(1);
+	System.out.println("after removing "+customernames);
+	
+	//remove the customer by index
+			customernames.remove(3);
+			System.out.println("after removing from index 1 :"+ customernames);
+
+			//remove the customer by object
+			customernames.remove("rahul");
+			System.out.println("after removing by object, :"+ customernames);
+			
+			//get the customer by index
+	        System.out.println("reterive customer by index :"+ customernames.get(1));
+			
+	}
+
+}

@@ -1,0 +1,27 @@
+package day3java;
+
+public class ifdemo2nestedif {
+
+	public static void main(String[] args) {
+		int salary=7000;
+		int age = 23;
+		//nested if demo
+	    if(age>22)
+		{
+	    	if(salary>6000)
+	    	{
+	    		System.out.println("eligible for loan");
+	    	}
+	    	else
+	    	{
+	    		System.out.println("salary is less");
+	    	}
+			
+		}
+	    else
+	    {
+	    	System.out.println("age is less");
+	    }	
+	}
+
+}

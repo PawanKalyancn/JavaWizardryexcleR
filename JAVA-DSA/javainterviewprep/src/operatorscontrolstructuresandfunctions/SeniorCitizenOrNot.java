@@ -1,0 +1,18 @@
+package operatorscontrolstructuresandfunctions;
+
+public class SeniorCitizenOrNot {
+	SeniorCitizenOrNot(int n){
+		if(n>=65) {
+			System.out.println("senior cityzen");
+		}
+		else {
+			System.out.println("ur not senior cityzen");
+		}
+	}
+	
+	public static void main(String[] args) {
+
+		SeniorCitizenOrNot sn = new SeniorCitizenOrNot(7);
+	}
+
+}

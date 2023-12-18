@@ -1,0 +1,121 @@
+==================
+genric collection and product code
+package com.excelr.day8.collections;
+
+import java.util.ArrayList;
+
+public class GenericCollection {
+
+	public static void main(String[] args) {
+
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		nums.add(1);
+		nums.add(2);
+		//nums.add("hi");
+		System.out.println(nums);
+		
+		ArrayList<String> names = new ArrayList<String>();
+		names.add("sachin");
+		names.add("rahul");
+		
+		System.out.println(names);
+		
+		
+		Product p1 = new Product(1, "laptop", "electronics", 92000);
+		
+		ArrayList<Product> products = new ArrayList<Product>();
+		products.add(p1);
+		products.add(new Product(2,"mobile","electronics",13000));
+		products.add(new Product(3,"t-shirt","cloth",4000));
+
+		System.out.println(products);
+		
+		
+	}
+
+}
+
+package com.excelr.day8.collections;
+
+public class Product {
+
+	int id;
+	String name;
+	String category;
+	int price;
+	
+	Product(int id, String name, String category, int price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + "]";
+	}
+	
+	
+
+}
+
+
+===============
+array list method
+================
+package com.excelr.day8.collections;
+
+import java.util.ArrayList;
+
+public class ArrayListDemo2 {
+
+	public static void main(String[] args) {
+
+		ArrayList<String> customerNames = new ArrayList<String>();
+		
+		System.out.println("before adding size =:"+ customerNames.size());
+		
+		customerNames.add("anil");
+		customerNames.add("manish");
+		customerNames.add("sourab");
+		customerNames.add("ankit");
+		customerNames.add("rahul");
+		
+		System.out.println("after adding size =:"+ customerNames.size());
+		
+		System.out.println("reterive all customer list :"+ customerNames);
+		
+		//remove the customer by index
+		customerNames.remove(1);
+		System.out.println("after removing from index 1 :"+ customerNames);
+
+		//remove the customer by object
+		customerNames.remove("rahul");
+		System.out.println("after removing by object, :"+ customerNames);
+		
+		//get the customer by index
+        System.out.println("reterive customer by index :"+ customerNames.get(1));
+		
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

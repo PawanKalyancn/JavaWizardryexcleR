@@ -1,0 +1,32 @@
+package javaday5;
+class Parent
+{
+	Parent(int id)
+	{
+		System.out.println("parent constructor "+ id);
+	}
+}
+
+class Child extends Parent
+{
+	Child() 
+	{
+		super(1);
+		System.out.println("child constructor");
+	}
+	
+}
+
+
+
+
+public class inhertencedemo {
+
+	public static void main(String[] args) {
+		Child child = new Child();
+		
+		
+		
+	}
+
+}

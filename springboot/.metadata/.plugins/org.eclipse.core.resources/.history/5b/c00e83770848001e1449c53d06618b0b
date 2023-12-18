@@ -1,0 +1,48 @@
+package com.excler;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.excler.entity.Customer;
+import com.excler.repostory.Customerrepository;
+@SpringBootApplication
+public class JpacruddemoApplication implements CommandLineRunner {
+	
+	@Autowired
+	Customerrepository customerrepository;//same as object creation
+	
+	public static void main(String[] args) {
+		SpringApplication.run(JpacruddemoApplication.class, args);
+	
+	
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		
+		Customer customer = new Customer(2, "phone", 444334, "accessories", 25);
+Customer product1 = new Customer(3,"laptop", 92000, "accessories", 20);
+System.out.println("printing al the products");
+customerrepository.save(customer);
+
+customerrepository.save(product1);
+
+		System.out.println("---find all the  products---- \n ");
+	Iterable<Customer> customers =	customerrepository.findAll();
+for(Customer prod : customers)
+	{
+		System.out.println(prod);
+	}
+      System.out.println("---\n ");
+      
+      System.out.println("---find product by id ---");
+      
+     Customer pro =    customerrepository.findById(1).get();
+     System.out.println("Product with for given id "+ pro);
+	
+		
+	}
+
+	}

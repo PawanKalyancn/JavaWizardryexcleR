@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;com.excelr.utility&apos; to &apos;loanservic-springboot-restfullservies/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;restapicruddemo&apos;&#x0D;&#x0A;- Destination element: &apos;loanservic-springboot-restfullservies/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;restapicruddemo/src/main/java/com.excelr.utility&apos;" description="Copy package" destination="=loanservic-springboot-restfullservies/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.excelr.utility" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1699958171657" version="1.0"/>
+</session>

@@ -1,0 +1,108 @@
+likedlist example
+--------------------
+LinkedList<String> customerNames = new LinkedList<String>();
+		
+		
+		customerNames.add("anil");
+		customerNames.add("sourab");
+		customerNames.addFirst("manish");
+		customerNames.addLast("rahul");   // wroks as add
+		customerNames.add("rohit");
+		
+		System.out.println("list :"+ customerNames);
+	
+		customerNames.set(2, "hello");
+		System.out.println(customerNames);
+		
+		System.out.println(customerNames.remove());
+		
+		System.out.println("after removing"+customerNames);
+        
+		customerNames.remove(2);
+		System.out.println("after removing"+customerNames);
+		==================================
+		
+		
+hashcode and equeals example
+====================
+class User
+{
+	int id;
+	String name;
+	
+	User(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name);
+	}
+
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return id == other.id && Objects.equals(name, other.name);
+	}
+	
+	
+	
+}
+
+
+public class HashCodeAndEqualsDemo {
+
+	public static void main(String[] args) {
+
+		User user1 = new User(1,"john");
+		User user2 = new User(1,"john");
+		
+		System.out.println(user1.hashCode());
+		System.out.println(user2.hashCode());
+		
+		
+		
+	}
+
+}
+
+
+====================
+hashset
+===========================
+HashSet<String> names = new HashSet<String>();
+	    names.add("sachin");
+	    names.add("dhoni");
+	    names.add("dhoni");
+	    names.add("bumrah");
+	    names.add("shami");
+	    
+	    System.out.println("hashset (ownorder)  ="+names);
+	    
+	   LinkedHashSet<String> names2 = new LinkedHashSet<String>();
+	   names2.add("sachin");
+	   names2.add("dhoni");
+	   names2.add("dhoni");
+	   names2.add("bumrah");
+	   names2.add("shami");
+	    
+	    System.out.println("LinkedHashSet (insertion order)  ="+names2);
+	    
+	    
+	    TreeSet<String> names3 = new TreeSet<String>();
+	    names3.add("sachin");
+	    names3.add("dhoni");
+	    names3.add("dhoni");
+	    names3.add("bumrah");
+	    names3.add("shami");
+		    
+		    System.out.println("TreeSet (sorted order)  ="+names3);

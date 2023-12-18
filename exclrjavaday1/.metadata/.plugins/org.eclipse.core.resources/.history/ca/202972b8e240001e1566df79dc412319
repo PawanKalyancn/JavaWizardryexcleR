@@ -1,0 +1,20 @@
+package mavendemoo;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+import com.maveneccler.Calculation;
+
+public class CalculationTest {
+	Calculation cal =new Calculation();
+	@Test
+	
+	public void test() {
+					assertEquals(6, cal.add(2, 03));
+		
+					assertEquals(6, cal.sub(2, 03));
+
+	}
+
+}

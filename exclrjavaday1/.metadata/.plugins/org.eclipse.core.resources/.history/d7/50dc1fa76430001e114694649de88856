@@ -1,0 +1,17 @@
+package javaday7;
+
+public class trycatchdemo {
+
+	public static void main(String[] args) {
+		try
+		{
+			System.out.println(2/0);
+		}
+		catch (NullPointerException e) // call the proper catch block
+		{
+			System.out.println("some exception occured");
+		}
+
+	}
+
+}

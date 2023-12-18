@@ -1,0 +1,57 @@
+iterative colection
+=================
+
+
+package com.excelr.day8.collections;
+
+import java.util.ArrayList;
+
+public class IterateDemo2 {
+
+	public static void main(String[] args) {
+
+		ArrayList<Product> products = new ArrayList<Product>();
+		products.add(new Product(1,"laptop", "electronics", 80000));
+		products.add(new Product(2,"table", "furniture", 55000));
+		products.add(new Product(3,"pendrive", "electronics", 1000));
+		products.add(new Product(4,"t-shirt", "cloth", 4000));
+		
+	     System.out.println(products);
+	     
+	     System.out.println("------------------");
+	     
+	     for(Product product : products)
+	    	 System.out.println(product);
+
+		
+	}
+
+}
+
+
+package com.excelr.day8.collections;
+
+public class Product {
+
+	int id;
+	String name;
+	String category;
+	int price;
+	
+	Product(int id, String name, String category, int price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.category = category;
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", category=" + category + ", price=" + price + "]";
+	}
+	
+	
+
+}
+

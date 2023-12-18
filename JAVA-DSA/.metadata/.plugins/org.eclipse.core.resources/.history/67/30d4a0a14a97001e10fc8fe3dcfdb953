@@ -1,0 +1,101 @@
+package com.canlender.service;
+
+
+	import org.springframework.beans.factory.annotation.Autowired;
+	import org.springframework.stereotype.Service;
+
+import com.canlender.entity.TimesheetEntry;
+import com.canlender.repository.TimesheetEntryRepository;
+
+import jakarta.transaction.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+	import java.util.Optional;
+
+	@Service
+	public class TimeSheetServiceImpl implements TimeSheetService {
+
+	    @Autowired
+	    private TimesheetEntryRepository timeSheetRepository;
+
+		@Override
+		public List<TimesheetEntry> getAllTimeSheetEntries() {
+
+	        return timeSheetRepository.findAll();
+		}
+
+		@Override
+		public TimesheetEntry saveTimeSheetEntry(TimesheetEntry timeSheetEntry) {
+			// TODO Auto-generated method stub
+	        return timeSheetRepository.save(timeSheetEntry);
+		}
+
+		
+
+
+		@Override
+		public void deleteTimeSheetEntry(Long id) {
+			// TODO Auto-generated method stub
+	        timeSheetRepository.deleteById(id);
+		}
+
+		@Override
+		public TimesheetEntry updateTimeSheetEntryStatus(Long id, String status, String reason) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		
+
+		@Override
+	    public void saveTimesheetEntry(TimesheetEntry timesheetEntry) {
+	        timeSheetRepository.save(timesheetEntry);
+	    }
+
+	    @Override
+	    @Transactional
+	    public void updateStatusAndReason(Long id, String newStatus, String rejectionReason) {
+	        TimesheetEntry timesheetEntry = timeSheetRepository.findById(id).orElse(null);
+	        if (timesheetEntry != null) {
+	            timesheetEntry.updateStatusAndReason(newStatus, rejectionReason);
+	        }
+	    }
+		}
+
+		
+		
+		
+		
+		
+		
+		
+		
+	/*	@Override
+	    @Transactional
+	    public List<TimesheetEntry> updateEntriesStatus(List<TimesheetEntry> requests) {
+			 List<TimesheetEntry> updatedEntries = new ArrayList<>();
+
+		        for (TimesheetEntry request : requests) {
+		            Optional<TimesheetEntry> optionalEntry = timeSheetRepository.findById(request.getId());
+		            
+		            if (optionalEntry.isPresent()) {
+		                TimesheetEntry entry = optionalEntry.get();
+		                entry.setStatus(request.getStatus());
+		                entry.setReason(request.getReason());
+
+		                // Perform any additional logic if needed
+
+		                updatedEntries.add(timeSheetRepository.save(entry));
+		            }
+		        }
+
+		        return updatedEntries;
+		    }	*/
+		
+	}
+
+		
+	
+		
+	

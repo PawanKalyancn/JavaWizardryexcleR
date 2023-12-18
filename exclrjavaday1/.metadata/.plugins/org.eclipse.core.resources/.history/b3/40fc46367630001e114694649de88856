@@ -1,0 +1,89 @@
+trycatchdemo
+
+==============
+int marks[]=new int[5];
+		
+		try
+		{
+			System.out.println(2/2);
+			marks[7]=68;
+		}	
+		catch(ArithmeticException | ArrayIndexOutOfBoundsException  exObj ) // call the proper catch block
+		{
+			System.out.println(exObj.getMessage());
+			
+		}
+	=====================	
+		userinputexample
+		-----------------------
+		scanner scanner = new Scanner(System.in);
+		
+          try
+		{
+			System.out.println("enter the value of number1 ");
+			int number1 = scanner.nextInt();
+			
+			System.out.println("enter the value of number2 ");
+			int number2 = scanner.nextInt();
+			
+			int result = number1/number2;
+			System.out.println("Result = "+ result);
+		}
+		catch (ArithmeticException e) 
+		{
+			System.out.println("do not enter zero");
+		}
+		catch(InputMismatchException ex)
+		{
+			System.out.println("enter only digits");
+		}
+		
+		
+		===================
+		user definded expection
+		=================
+		class InValidAgeException extends RuntimeException
+{
+	String msg;
+
+	InValidAgeException(String msg) {
+		super();
+		this.msg = msg;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+	
+}
+
+class User
+{
+	public void checkEligiblity(int age)
+	{
+		if(age>=18)
+			System.out.println("you are eligible to vote");
+		else
+			throw new InValidAgeException("age is less, It should be minimum 18");
+	}
+}
+
+
+
+public class UserDefinedException {
+
+	public static void main(String[] args) {
+
+		User user = new User();
+		try
+		{
+			user.checkEligiblity(3);
+		}
+		catch (InValidAgeException e) 
+		{
+			System.out.println("exception occured :"+ e.getMsg());
+		}
+		
+	}
+
+}

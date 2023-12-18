@@ -1,0 +1,10 @@
+package StreamDEmo;
+
+public class WWE {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

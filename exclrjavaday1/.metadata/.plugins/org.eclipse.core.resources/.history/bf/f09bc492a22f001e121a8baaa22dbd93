@@ -1,0 +1,87 @@
+=======================
+upcasting
+====================
+class RBI
+{
+	void rateOfInterest()
+	{
+		System.out.println("3% rbi interest");
+	}
+	
+	void holiday()
+	{
+		System.out.println("2nd and 4th satrurday is holiday");
+	}
+}
+
+class Axis extends RBI
+{
+	void rateOfInterest()
+	{
+		System.out.println("6% axis interest");
+	}
+	
+	void axisNewPolicy()
+	{
+		System.out.println("to open an account no need of pan");
+	}
+	
+}
+public class Upcasting {
+
+	public static void main(String[] args) {
+
+		Axis axis = new Axis();   // it has access to both
+		axis.rateOfInterest();
+		axis.holiday();
+		axis.axisNewPolicy();
+		
+		System.out.println("==================");
+		
+		RBI rbi = new Axis();  // upcasting ( child object, parent reference)
+		rbi.rateOfInterest();
+		rbi.holiday();
+		//rbi.axisNewPolicy();
+		
+		
+		
+		
+	}
+
+}
+-------------------------------------
+abstractclass
+------------------------
+abstract class Operation
+{
+	void greet()
+	{
+		System.out.println("hi welcome all...");
+	}
+	
+	abstract void calculate(int a,int b);
+}
+
+class Addition extends Operation
+{
+
+	@Override
+	void calculate(int a, int b) 
+	{
+		System.out.println(a-b);
+	}
+	
+}
+
+
+
+
+public class AbstractClassDemo {
+
+	public static void main(String[] args) {
+
+		Addition addition = new Addition();
+		addition.calculate(2, 3);
+	}
+
+}

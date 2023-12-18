@@ -1,0 +1,375 @@
+class Car
+{
+	// variable -- data memeber
+	int modelNo;
+	String color;
+	double price;
+	int kilometerDriven;
+	
+	
+	//method  -- memeber function
+	void checkCarStatus()
+	{
+		if(kilometerDriven<=5000)
+			System.out.println("car is new");
+		else if(kilometerDriven>5000 && kilometerDriven<=20000)
+			System.out.println("car is in good condition");
+		else
+			System.out.println("car is old");
+	}
+	
+	  void displayCarInfo()
+	  {
+		  System.out.println("-----car info------");
+		  System.out.println("color :"+ color);
+		  System.out.println("model :"+ modelNo);
+		  System.out.println("price :"+ price);
+		  System.out.println("kilometer driven :"+ kilometerDriven);
+		  System.out.println("=========================");
+	  }
+	
+	
+	
+}
+public class CarApp {
+
+	public static void main(String[] args) {
+
+		Car car = new Car();
+		car.color="red";
+		car.modelNo=2021;
+		car.kilometerDriven=34000;
+		car.price=700000;
+		
+		
+		Car car2 = new Car();
+		car2.color="blue";
+		car2.modelNo=2023;
+		car2.kilometerDriven=2000;
+		car2.price=800000;
+		
+		car.checkCarStatus();
+		System.out.println("==========");
+		car2.checkCarStatus();
+		
+		car.displayCarInfo();
+		car2.displayCarInfo();
+		
+		
+	}
+
+}
+
+
+defAULT CONSTRUCTOR
+------------------------
+class Bank
+{
+	Bank()
+	{
+		System.out.println("this is constructor");
+	}
+	
+	void display()
+	{
+		System.out.println("this is a display method");
+	}
+}
+
+
+
+public class DefaultConstructor {
+
+	public static void main(String[] args) {
+	
+		
+		Bank bank = new Bank(); // constructor call during object creation
+		bank.display();
+	}
+}
+
+
+-----------------------------------
+class Employee
+{
+	int id;   // global 
+	String name;
+	
+	Employee(int id, String name)   // local
+	{
+		this.id=id;
+		this.name=name;
+	}
+	
+	
+	void displayEmployeeInfo()
+	{
+		System.out.println("id :"+ id);
+		System.out.println("name :"+ name);
+	}
+}
+
+
+
+public class ParameterizedConstructor {
+
+	public static void main(String[] args) {
+
+		Employee employee = new Employee(1, "sourab");
+		employee.displayEmployeeInfo();
+	}
+
+}
+------------------------------------------------
+class Employee
+{   
+	int id;// global 
+	String name;
+	
+	Employee(int id, String name)   // local
+	{
+		this.id=id;
+		this.name=name;
+	}
+	
+	
+	void displayEmployeeInfo()
+	{
+		System.out.println("id :"+ id);
+		System.out.println("name :"+ name);
+	}
+}
+
+
+
+public class ParameterizedConstructor {
+
+	public static void main(String[] args) {
+
+		Employee employee = new Employee(1, "sourab");
+		employee.displayEmployeeInfo();
+	}
+
+}
+
+---------------------------
+task
+-------------------------
+create a account class , with the following fields
+Account
+    accountNo,
+    accoutHolderName
+    balance	
+	
+	initilize the values using constructor.
+	   Account(1001,'manish',5000);
+	   
+	declare 3 methods,
+        1) display() ---> print all 3 fields
+        2) deposit(amount)  --> add the balance with the given amount
+        3) withdraw(amount)  --> substract the amount from balance 		
+	   
+	
+	do some transcation and show the balance.
+	--------------------------------------------------
+	ans:
+	class Account{
+	int accountNo;
+	String accountHolderName;
+	double balance;
+	
+	 Account(int accountNo,String accountHolderName,double balance){
+	     
+		 this.accountNo = accountNo;
+		 this.accountHolderName = accountHolderName;
+		 this.balance = balance;
+		 
+		 
+		 System.out.println("Acoount.constructor()");	
+	}
+	 
+	 void display() {
+		 System.out.println("AccountNo :- "+accountNo);
+		 System.out.println("accountHolderName :- "+accountHolderName);
+		 System.out.println("Accountbalance :- "+balance);
+	 }
+	 
+	 void deposit(int amount) {
+		 
+		 System.out.println("=======================");
+		 System.out.println("After Deposit balance is :-  "+balance);
+		 
+		 balance = balance + amount;
+		 
+		 System.out.println("Befor Deposit balance is :-  "+balance);
+	 }
+void withdraw(int amount) {
+		 System.out.println("=======================");
+		 System.out.println("After Deposit balance is :-  "+balance);
+		 
+		 balance = balance - amount;
+		 
+		 System.out.println("Befor Deposit balance is :-  "+balance);
+		 
+	 }
+}
+	--------------------------
+	or
+	----------------------
+	class Account {
+
+    int accountNo;
+    String accountHolderName;
+    int balance;
+    Account(int accountNo,String accountHolderName,int balance){
+        this.accountNo=accountNo;
+        this.accountHolderName=accountHolderName;
+        this.balance=balance;
+    }
+
+    void display(){
+        System.out.println(accountNo);
+        System.out.println(accountHolderName);
+        System.out.println(balance);
+    }
+
+    void deposit(int amount){
+        this.balance=balance+amount;
+        System.out.println(balance);
+    }
+
+    void withdraw(int amount){
+        this.balance = balance-amount;
+        System.out.println(balance);
+    }
+    public static void main(String[] args) {
+
+        Account ac = new Account(1,"rushi",100);
+        ac.display();
+        ac.deposit(200);
+        
+        ac.withdraw(50);
+    }
+}
+-------------------------------
+sir made code
+----------------------------
+class Account
+{
+	int accountNo;
+	String accountHolderName;
+	int balance;
+	
+	Account(int accountNo, String accountHolderName, int balance) {
+		
+		this.accountNo = accountNo;
+		this.accountHolderName = accountHolderName;
+		this.balance = balance;
+	}
+	
+	
+      void withdraw(int amount)
+      {
+    	  balance-=amount;
+      }
+      
+      void deposit(int amount)
+      {
+    	  balance+=amount;
+      }
+      
+      int getBalance()
+      {
+    	  return balance;
+      }
+	
+	
+}
+public class AccountApp {
+
+	public static void main(String[] args) {
+
+		Account account = new Account(1001, "ravi", 5000);
+		System.out.println("balance :"+ account.getBalance());
+		
+		account.withdraw(3000);
+		System.out.println("after withdraw balance :"+ account.getBalance());
+		
+		account.deposit(4000);
+		System.out.println("after deposit balance :"+ account.getBalance());
+		
+		account.deposit(4000);
+		System.out.println("after deposit balance :"+ account.getBalance());
+	
+		
+		
+
+		
+		
+		
+		
+	}
+
+}
+
+
+-------------------------------------
+package Day4;
+
+
+
+class Accountde
+{
+	int accountno;
+	String accountholdername;
+	int balance;
+	
+	Accountde(int no, String name, int balance1)
+	{
+		this.accountno=no;
+		this.accountholdername=name;
+		this.balance=balance1;
+		
+	}
+	
+	void Displayinfo()
+	{
+		System.out.println("AccountNo is: "+ accountno);
+		System.out.println("Account name is: "+ accountholdername);
+		System.out.println("Account balance is: "+ balance);
+	}
+	
+	void Deposite(int amount)
+	{
+		balance+=amount;
+	}
+	void withdraw(int amount)
+	{
+		balance-=amount;
+	}
+	
+	int getbalce()
+	{
+		return balance;
+	}
+}
+
+public class Account {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Accountde account = new Accountde(101, "rohit", 45000);
+		System.out.println();
+		
+		
+		account.Deposite(4500);
+		System.out.println("after withdraw balance :"+ account.getbalce());
+		
+		
+		account.withdraw(3000);
+		System.out.println("after withdraw balance :"+ account.getbalce());
+
+	}
+
+}

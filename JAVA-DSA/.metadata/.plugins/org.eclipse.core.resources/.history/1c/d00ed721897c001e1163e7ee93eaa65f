@@ -1,0 +1,28 @@
+package arraydemo;
+
+public class ArrayDEMo {
+/*Array is staore to similar types of vaues
+ * for storeing differnt types valeus to store we use collectrion
+ * collections in java are 
+ * 1.List(  -arraylist
+ * 			-linkedlist)
+ * 2.Set(hashset ,treeSet)(dont allow dupiclate)
+ * 3.MApp(stores like key,value)
+ * 	-hash map and tree map
+ *	-tree map
+ *all the above are interface we cant create objects
+ *
+ *
+ *
+ */	
+	public static void main(String[] args) {
+System.out.println("array");
+	int a[]= new int[5];
+	a[0]=1;
+	a[1]=2;
+	a[2]=3;
+	System.out.println(a[0]);
+		
+	}
+
+}
